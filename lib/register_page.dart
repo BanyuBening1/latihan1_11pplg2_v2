@@ -32,13 +32,13 @@ class _RegisterPageState extends State<RegisterPage> {
         email.isEmpty ||
         password.isEmpty ||
         selectedGender == null) {
-      showCustomSnackBar(
+      CustomSnackBar(
         context,
         "Semua wajib diisi!",
         backgroundColor: Colors.red,
       );
     } else {
-      showCustomSnackBar(
+      CustomSnackBar(
         context,
         "Register berhasil untuk $name ($selectedGender)",
         backgroundColor: Colors.green,
@@ -61,9 +61,8 @@ class _RegisterPageState extends State<RegisterPage> {
               const Text(
                 'Please Register Below',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   color: Color.fromARGB(255, 250, 99, 54),
-                  fontWeight: FontWeight.bold,
                 ),
               ),
 

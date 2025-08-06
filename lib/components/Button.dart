@@ -17,12 +17,9 @@ class ReuseableButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      width: 100,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: bordercolor,
-          padding: const EdgeInsets.symmetric(vertical: 16),
-        ),
+        style: ElevatedButton.styleFrom(backgroundColor: bordercolor),
         onPressed: onPressed,
         child: Text(text, style: TextStyle(color: textColor)),
       ),
