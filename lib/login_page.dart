@@ -59,13 +59,13 @@ class _LoginPageState extends State<LoginPage> {
                 String inputPassword = passwordController.text;
 
                 if (inputEmail.isEmpty || inputPassword.isEmpty) {
-                  showCustomSnackBar(
+                  CustomSnackBar(
                     context,
                     "Email atau Password tidak boleh kosong!",
                     backgroundColor: Colors.red,
                   );
                 } else if (inputEmail == email && inputPassword == password) {
-                  showCustomSnackBar(
+                  CustomSnackBar(
                     context,
                     "Anda berhasil login",
                     backgroundColor: Colors.lightGreen,
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                     statusLogin = "sukses login";
                   });
                 } else {
-                  showCustomSnackBar(
+                  CustomSnackBar(
                     context,
                     "Email atau Password salah!",
                     backgroundColor: Colors.red,

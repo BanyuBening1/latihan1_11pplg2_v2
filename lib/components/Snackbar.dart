@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void showCustomSnackBar(
+void CustomSnackBar(
   BuildContext context,
   String message, {
   Color backgroundColor = Colors.black,
@@ -8,16 +8,11 @@ void showCustomSnackBar(
 }) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      content: Text(
-        message,
-        style: TextStyle(color: Colors.white),
-      ),
+      content: Text(message, style: TextStyle(color: Colors.white)),
       backgroundColor: backgroundColor,
       duration: duration,
       behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
     ),
   );

@@ -12,17 +12,22 @@ class Gender extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField<String>(
-      value: selectedGender,
-      items: const [
-        DropdownMenuItem(value: 'Laki-laki', child: Text('Laki-laki')),
-        DropdownMenuItem(value: 'Perempuan', child: Text('Perempuan')),
-      ],
-      onChanged: onChanged,
-      decoration: InputDecoration(
-        labelText: 'Gender',
-        border: OutlineInputBorder(),
-        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    return Center(
+      child: SizedBox(
+        width: 310,
+        child: DropdownButtonFormField<String>(
+          value: selectedGender,
+          items: const [
+            DropdownMenuItem(value: 'Laki-laki', child: Text('Laki-laki')),
+            DropdownMenuItem(value: 'Perempuan', child: Text('Perempuan')),
+          ],
+          onChanged: onChanged,
+          decoration: InputDecoration(
+            labelText: 'Gender',
+            border: OutlineInputBorder(),
+            contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+          ),
+        ),
       ),
     );
   }
