@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:latihan1_11pplg2_v2/components/Button.dart';
 import 'package:latihan1_11pplg2_v2/components/TextField.dart';
 import 'package:latihan1_11pplg2_v2/controllers/calculator_controller.dart';
+import 'package:latihan1_11pplg2_v2/routes/routes.dart';
 
 class CalculatorPage extends StatelessWidget {
   CalculatorPage({super.key});
@@ -84,8 +85,10 @@ class CalculatorPage extends StatelessWidget {
 
               Center(
                 child: ReuseableButton(
-                  text: "Clear",
-                  onPressed: calculatorController.clear,
+                  text: "Main Menu",
+                  onPressed: () {
+                    Get.toNamed(AppRoutes.footballPage);
+                  },
                   bordercolor: Colors.red,
                   textColor: Colors.black,
                 ),
