@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:latihan1_11pplg2_v2/controllers/football_player_controller.dart';
+import 'package:latihan1_11pplg2_v2/model/football_player_model.dart';
+
+class EditFootballPlayerController extends GetxController {
+  late Player player;
+  late int index;
+
+  final nama = TextEditingController();
+  final posisi = TextEditingController();
+  final nomor = TextEditingController();
+
+  void setPlayer(int index) {
+    final footballController = Get.find<FootballPlayerController>();
+    player = footballController.players[index];
+    this.index = index;
+    nama.text = player.nama;
+    posisi.text = player.posisi;
+    nomor.text = player.nomorPunggung.toString();
+  }
+
+  void savePlayer() {
+    final footballController = Get.find<FootballPlayerController>();
+    footballController.players[index] = Player(
+      nama: nama.text,
+      posisi: posisi.text,
+      nomorPunggung: int.tryParse(nomor.text) ?? 0,
+      image: player.image,
+    );
+    footballController.players.refresh();
+  }
+
+  @override
+  void onClose() {
+    nama.dispose();
+    posisi.dispose();
+    nomor.dispose();
+    super.onClose();
+  }
+}
