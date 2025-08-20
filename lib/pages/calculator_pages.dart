@@ -85,9 +85,9 @@ class CalculatorPage extends StatelessWidget {
 
               Center(
                 child: ReuseableButton(
-                  text: "Main Menu",
+                  text: "Clear",
                   onPressed: () {
-                    Get.toNamed(AppRoutes.footballPage);
+                    calculatorController.clear();
                   },
                   bordercolor: Colors.red,
                   textColor: Colors.black,

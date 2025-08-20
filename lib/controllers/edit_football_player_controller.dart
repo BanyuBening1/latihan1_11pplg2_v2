@@ -11,6 +11,8 @@ class EditFootballPlayerController extends GetxController {
   final posisi = TextEditingController();
   final nomor = TextEditingController();
 
+  var image = "".obs; 
+
   void setPlayer(int index) {
     final footballController = Get.find<FootballPlayerController>();
     player = footballController.players[index];
@@ -18,6 +20,7 @@ class EditFootballPlayerController extends GetxController {
     nama.text = player.nama;
     posisi.text = player.posisi;
     nomor.text = player.nomorPunggung.toString();
+    image.value = player.image; 
   }
 
   void savePlayer() {
@@ -26,7 +29,7 @@ class EditFootballPlayerController extends GetxController {
       nama: nama.text,
       posisi: posisi.text,
       nomorPunggung: int.tryParse(nomor.text) ?? 0,
-      image: player.image,
+      image: image.value, 
     );
     footballController.players.refresh();
   }
