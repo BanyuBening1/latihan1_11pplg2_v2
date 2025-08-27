@@ -12,27 +12,34 @@ class FootballPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Football Player")),
-      body: Container(
-        margin: EdgeInsets.all(10),
-        child: Obx(
-          () => ListView.builder(
-            itemCount: footballPlayerController.players.length,
-            itemBuilder: (context, index) {
-              final player = footballPlayerController.players[index];
-              return ListTile(
-                leading: Image.asset(player.image, width: 50, height: 50),
-                title: Text(player.nama),
+    return Container(
+      margin: const EdgeInsets.all(10),
+      child: Obx(
+        () => ListView.builder(
+          itemCount: footballPlayerController.players.length,
+          itemBuilder: (context, index) {
+            final player = footballPlayerController.players[index];
+            return Card(
+              elevation: 2,
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(player.image),
+                  radius: 25,
+                ),
+                title: Text(
+                  player.nama,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
                 subtitle: Text(
-                  "${player.posisi} - No. ${player.nomorPunggung}",
+                  "${player.posisi} • No. ${player.nomorPunggung}",
                 ),
                 onTap: () {
                   Get.toNamed(AppRoutes.editPage, arguments: index);
                 },
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ),
     );
