@@ -11,17 +11,21 @@ class EditFootballPlayerController extends GetxController {
   final posisi = TextEditingController();
   final nomor = TextEditingController();
 
-  var image = "".obs; 
+  var image = "".obs;
 
-  void setPlayer(int index) {
-    final footballController = Get.find<FootballPlayerController>();
+  @override
+  void onInit() {
+    super.onInit();
+    index = Get.arguments as int;
+     final footballController = Get.find<FootballPlayerController>();
     player = footballController.players[index];
-    this.index = index;
     nama.text = player.nama;
     posisi.text = player.posisi;
     nomor.text = player.nomorPunggung.toString();
-    image.value = player.image; 
+    image.value = player.image;
   }
+
+  
 
   void savePlayer() {
     final footballController = Get.find<FootballPlayerController>();
@@ -29,7 +33,7 @@ class EditFootballPlayerController extends GetxController {
       nama: nama.text,
       posisi: posisi.text,
       nomorPunggung: int.tryParse(nomor.text) ?? 0,
-      image: image.value, 
+      image: image.value,
     );
     footballController.players.refresh();
   }

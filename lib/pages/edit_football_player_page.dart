@@ -6,9 +6,7 @@ import 'package:latihan1_11pplg2_v2/controllers/edit_football_player_controller.
 
 class EditFootballPlayerPage extends StatelessWidget {
   EditFootballPlayerPage({super.key}) {
-    final int index = Get.arguments as int;
-    final controller = Get.put(EditFootballPlayerController());
-    controller.setPlayer(index);
+    Get.put(EditFootballPlayerController());
   }
 
   @override
